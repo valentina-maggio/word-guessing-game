@@ -7,21 +7,21 @@ import org.junit.Test;
 public class GameTest {
   @Test
   public void testGetsWordToGuess() {
-    Game game = new Game("MAKERS");
+    Game game = new Game();
 
     assertEquals(game.getWordToGuess(), "M_____");
   }
 
   @Test
   public void testGetsSecondWordToGuess() {
-    Game game = new Game("SUMMERTIME");
+    Game game = new Game();
 
     assertEquals(game.getWordToGuess(), "S_________");
   }
 
   @Test
   public void testGetsInitialRemainingAttempts() {
-    Game game = new Game("MAKERS");
+    Game game = new Game();
 
     assertEquals(game.getRemainingAttempts(), Integer.valueOf(10));
   }

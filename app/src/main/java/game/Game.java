@@ -8,8 +8,8 @@ public class Game {
 
   private static final String[] DICTIONARY = { "MAKERS", "CANDIES", "DEVELOPER", "LONDON" };
 
-  public Game(String string) {
-    word = string;
+  public Game() {
+    word = getRandomWordFromDictionary();
   }
 
   public String getWordToGuess() {
