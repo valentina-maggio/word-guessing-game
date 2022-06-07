@@ -25,4 +25,10 @@ public class GameTest {
 
     assertEquals(game.getRemainingAttempts(), Integer.valueOf(10));
   }
+
+  // @Test
+  // public void testGetsRandomWordFromDictionary() {
+  // Game game = new Game("MAKERS");
+  // assertEquals(game.getRandomWordFromDictionary(), "MAKERS");
+  // }
 }
