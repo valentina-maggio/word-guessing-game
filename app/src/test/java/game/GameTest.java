@@ -23,6 +23,6 @@ public class GameTest {
   public void testGetsInitialRemainingAttempts() {
     Game game = new Game("MAKERS");
 
-    assertEquals(game.getAttempts(), Integer.valueOf(10));
+    assertEquals(game.getRemainingAttempts(), Integer.valueOf(10));
   }
 }
