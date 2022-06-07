@@ -11,4 +11,11 @@ public class GameTest {
 
     assertEquals(game.getWordToGuess(), "M_____");
   }
+
+  @Test
+  public void testGetsSecondWordToGuess() {
+    Game game = new Game("SUMMERTIME");
+
+    assertEquals(game.getWordToGuess(), "S_________");
+  }
 }
