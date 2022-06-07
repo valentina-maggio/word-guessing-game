@@ -18,4 +18,11 @@ public class GameTest {
 
     assertEquals(game.getWordToGuess(), "S_________");
   }
+
+  @Test
+  public void testGetsInitialRemainingAttempts() {
+    Game game = new Game("MAKERS");
+
+    assertEquals(game.getAttempts(), Integer.valueOf(10));
+  }
 }

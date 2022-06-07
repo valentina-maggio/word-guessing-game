@@ -2,6 +2,7 @@ package game;
 
 public class Game {
   String word;
+  Integer attempts = 10;
 
   public Game(String string) {
     word = string;
@@ -20,5 +21,9 @@ public class Game {
     }
 
     return sb.toString();
+  }
+
+  public Integer getAttempts() {
+    return attempts;
   }
 }
