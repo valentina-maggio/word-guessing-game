@@ -1,15 +1,14 @@
 package game;
 
-import java.util.Random;
-
 public class Game {
   private String word;
   private Integer remainingAttempts = 10;
+  private WordChoser wordChoser = new WordChoser();
 
   private static final String[] DICTIONARY = { "MAKERS", "CANDIES", "DEVELOPER", "LONDON" };
 
-  public Game() {
-    word = getRandomWordFromDictionary();
+  public Game(WordChoser wordChoser) {
+    word = wordChoser.getRandomWordFromDictionary();
   }
 
   public String getWordToGuess() {
@@ -29,11 +28,5 @@ public class Game {
 
   public Integer getRemainingAttempts() {
     return remainingAttempts;
-  }
-
-  public String getRandomWordFromDictionary() {
-    Random rand = new Random();
-    int randomNumber = rand.nextInt(DICTIONARY.length);
-    return DICTIONARY[randomNumber];
   }
 }

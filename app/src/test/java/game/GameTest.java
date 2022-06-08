@@ -1,34 +1,39 @@
 package game;
 
+import static org.mockito.Mockito.*;
+
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
 public class GameTest {
   @Test
-  public void testGetsWordToGuess() {
-    Game game = new Game();
+  public void testGetsWordToGuessMakers() {
+    WordChoser mockedWordChoser = mock(WordChoser.class);
+    when(mockedWordChoser.getRandomWordFromDictionary()).thenReturn("MAKERS");
+
+    Game game = new Game(mockedWordChoser);
 
     assertEquals(game.getWordToGuess(), "M_____");
   }
 
   @Test
-  public void testGetsSecondWordToGuess() {
-    Game game = new Game();
+  public void testGetsWordToGuessCandies() {
+    WordChoser mockedWordChoser = mock(WordChoser.class);
+    when(mockedWordChoser.getRandomWordFromDictionary()).thenReturn("CANDIES");
 
-    assertEquals(game.getWordToGuess(), "S_________");
+    Game game = new Game(mockedWordChoser);
+
+    assertEquals(game.getWordToGuess(), "C______");
   }
 
   @Test
   public void testGetsInitialRemainingAttempts() {
-    Game game = new Game();
+    WordChoser mockedWordChoser = mock(WordChoser.class);
+    when(mockedWordChoser.getRandomWordFromDictionary()).thenReturn("LONDON");
+
+    Game game = new Game(mockedWordChoser);
 
     assertEquals(game.getRemainingAttempts(), Integer.valueOf(10));
   }
-
-  // @Test
-  // public void testGetsRandomWordFromDictionary() {
-  // Game game = new Game("MAKERS");
-  // assertEquals(game.getRandomWordFromDictionary(), "MAKERS");
-  // }
 }
