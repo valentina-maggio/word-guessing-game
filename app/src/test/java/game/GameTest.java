@@ -36,4 +36,24 @@ public class GameTest {
 
     assertEquals(game.getRemainingAttempts(), Integer.valueOf(10));
   }
+
+  @Test
+  public void testGuessWrongLetter() {
+    WordChoser mockedWordChoser = mock(WordChoser.class);
+    when(mockedWordChoser.getRandomWordFromDictionary()).thenReturn("LONDON");
+
+    Game game = new Game(mockedWordChoser);
+
+    assertEquals(game.guessLetter('I'), false);
+  }
+
+  @Test
+  public void testGuessRightLetter() {
+    WordChoser mockedWordChoser = mock(WordChoser.class);
+    when(mockedWordChoser.getRandomWordFromDictionary()).thenReturn("LONDON");
+
+    Game game = new Game(mockedWordChoser);
+
+    assertEquals(game.guessLetter('N'), true);
+  }
 }
