@@ -24,7 +24,12 @@ public class App {
             Boolean result = game.guessLetter(input);
 
             if (result) {
-                System.out.println("Right!");
+                if (game.isGameWon()) {
+                    System.out.println("Right! You won!");
+                } else {
+                    System.out.println("Right!");
+                }
+
             } else {
                 if (game.isGameLost()) {
                     System.out.println("Wrong! You lost");
