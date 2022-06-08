@@ -85,8 +85,27 @@ public class GameTest {
     game.guessLetter('F');
     game.guessLetter('F');
     game.guessLetter('F');
-    System.out.println(game.getRemainingAttempts());
 
     assertEquals(true, game.isGameLost());
+  }
+
+  @Test
+  public void testTheGameIsWon() {
+    WordChoser mockedWordChoser = mock(WordChoser.class);
+    when(mockedWordChoser.getRandomWordFromDictionary()).thenReturn("CANDIES");
+
+    Game game = new Game(mockedWordChoser);
+    game.guessLetter('K');
+    game.guessLetter('A');
+    game.guessLetter('N');
+    game.guessLetter('G');
+    game.guessLetter('S');
+    game.guessLetter('I');
+    game.guessLetter('E');
+    game.guessLetter('D');
+    System.out.println(game.getLetters());
+    System.out.println(game.getWordToGuess());
+
+    assertEquals(true, game.isGameWon());
   }
 }

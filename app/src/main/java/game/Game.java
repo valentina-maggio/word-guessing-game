@@ -50,6 +50,10 @@ public class Game {
   }
 
   public Boolean isGameLost() {
-    return getRemainingAttempts() <= 0 && guessedLetters.size() != getWordToGuess().length();
+    return getRemainingAttempts() <= 0 && guessedLetters.size() != getWordToGuess().length() - 1;
+  }
+
+  public Boolean isGameWon() {
+    return guessedLetters.size() == getWordToGuess().length() - 1;
   }
 }
