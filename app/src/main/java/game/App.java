@@ -13,14 +13,22 @@ public class App {
     public static void main(String[] args) {
         WordChoser choser = new WordChoser();
         Game game = new Game(choser);
-
         System.out.println("Welcome! The word to guess is:");
-        System.out.println(game.getWordToGuess());
 
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Guess a letter!");
+        do {
+            System.out.println(game.getWordToGuess());
+            System.out.println("Guess a letter! " + "(" + game.getRemainingAttempts() + " attempts remaining)");
 
-        String input = scan.nextLine();
-        System.out.println("You entered " + input);
+            Scanner scan = new Scanner(System.in);
+            Character input = scan.nextLine().charAt(0);
+            Boolean result = game.guessLetter(input);
+
+            if (result) {
+                System.out.println("Right!");
+            } else {
+                System.out.println("Wrong!");
+            }
+
+        } while (game.getWordToGuess().contains("_") && game.getRemainingAttempts() > 0);
     }
 }
