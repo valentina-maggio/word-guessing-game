@@ -5,8 +5,6 @@ public class Game {
   private Integer remainingAttempts = 10;
   private WordChoser wordChoser = new WordChoser();
 
-  private static final String[] DICTIONARY = { "MAKERS", "CANDIES", "DEVELOPER", "LONDON" };
-
   public Game(WordChoser wordChoser) {
     word = wordChoser.getRandomWordFromDictionary();
   }
