@@ -26,7 +26,11 @@ public class App {
             if (result) {
                 System.out.println("Right!");
             } else {
-                System.out.println("Wrong!");
+                if (game.isGameLost()) {
+                    System.out.println("Wrong! You lost");
+                } else {
+                    System.out.println("Wrong!");
+                }
             }
 
         } while (game.getWordToGuess().contains("_") && game.getRemainingAttempts() > 0);
