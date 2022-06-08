@@ -108,4 +108,24 @@ public class GameTest {
 
     assertEquals(true, game.isGameWon());
   }
+
+  @Test
+  public void testTheGameIsWonWordWithSameOccurrences() {
+    WordChoser mockedWordChoser = mock(WordChoser.class);
+    when(mockedWordChoser.getRandomWordFromDictionary()).thenReturn("DEVELOPER");
+
+    Game game = new Game(mockedWordChoser);
+    game.guessLetter('K');
+    game.guessLetter('E');
+    game.guessLetter('N');
+    game.guessLetter('V');
+    game.guessLetter('R');
+    game.guessLetter('O');
+    game.guessLetter('L');
+    game.guessLetter('P');
+    System.out.println(game.getLetters());
+    System.out.println(game.getWordToGuess());
+
+    assertEquals(true, game.isGameWon());
+  }
 }

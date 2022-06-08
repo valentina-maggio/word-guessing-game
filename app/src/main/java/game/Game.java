@@ -54,6 +54,13 @@ public class Game {
   }
 
   public Boolean isGameWon() {
-    return guessedLetters.size() == getWordToGuess().length() - 1;
+    for (int i = 1; i < word.length(); i++) {
+      Character letter = word.charAt(i);
+      if (guessedLetters.indexOf(letter) == -1) {
+        return false;
+      }
+    }
+
+    return true;
   }
 }
