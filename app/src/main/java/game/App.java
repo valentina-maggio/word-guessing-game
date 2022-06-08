@@ -26,6 +26,7 @@ public class App {
             if (result) {
                 if (game.isGameWon()) {
                     System.out.println("Right! You won!");
+                    System.out.println(game.getWordToGuess());
                 } else {
                     System.out.println("Right!");
                 }
