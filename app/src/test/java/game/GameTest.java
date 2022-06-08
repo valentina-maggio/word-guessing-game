@@ -14,7 +14,7 @@ public class GameTest {
 
     Game game = new Game(mockedWordChoser);
 
-    assertEquals(game.getWordToGuess(), "M_____");
+    assertEquals("M_____", game.getWordToGuess());
   }
 
   @Test
@@ -24,7 +24,7 @@ public class GameTest {
 
     Game game = new Game(mockedWordChoser);
 
-    assertEquals(game.getWordToGuess(), "C______");
+    assertEquals("C______", game.getWordToGuess());
   }
 
   @Test
@@ -34,7 +34,7 @@ public class GameTest {
 
     Game game = new Game(mockedWordChoser);
 
-    assertEquals(game.getRemainingAttempts(), Integer.valueOf(10));
+    assertEquals(Integer.valueOf(10), game.getRemainingAttempts());
   }
 
   @Test
@@ -44,7 +44,7 @@ public class GameTest {
 
     Game game = new Game(mockedWordChoser);
 
-    assertEquals(game.guessLetter('I'), false);
+    assertEquals(false, game.guessLetter('I'));
   }
 
   @Test
@@ -54,6 +54,18 @@ public class GameTest {
 
     Game game = new Game(mockedWordChoser);
 
-    assertEquals(game.guessLetter('N'), true);
+    assertEquals(true, game.guessLetter('N'));
+  }
+
+  @Test
+  public void testGuessRightLetterAndDisplayIt() {
+    WordChoser mockedWordChoser = mock(WordChoser.class);
+    when(mockedWordChoser.getRandomWordFromDictionary()).thenReturn("DEVELOPER");
+
+    Game game = new Game(mockedWordChoser);
+
+    assertEquals("D________", game.getWordToGuess());
+    assertEquals(true, game.guessLetter('E'));
+    assertEquals("DE_E___E_", game.getWordToGuess());
   }
 }

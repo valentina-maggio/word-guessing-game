@@ -16,11 +16,15 @@ public class Game {
     StringBuilder sb = new StringBuilder();
 
     for (int i = 0; i < word.length(); i++) {
+      Character letter = word.charAt(i);
       if (i == 0) {
-        Character letter = word.charAt(0);
         sb.append(letter);
       } else {
-        sb.append("_");
+        if (guessedLetters.indexOf(letter) != -1) {
+          sb.append(letter);
+        } else {
+          sb.append("_");
+        }
       }
     }
 
@@ -39,5 +43,9 @@ public class Game {
       guessedLetters.add(letter);
       return true;
     }
+  }
+
+  public ArrayList<Character> getLetters() {
+    return guessedLetters;
   }
 }
