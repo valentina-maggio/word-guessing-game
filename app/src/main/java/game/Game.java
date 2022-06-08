@@ -48,4 +48,8 @@ public class Game {
   public ArrayList<Character> getLetters() {
     return guessedLetters;
   }
+
+  public Boolean isGameLost() {
+    return getRemainingAttempts() <= 0 && guessedLetters.size() != getWordToGuess().length();
+  }
 }
