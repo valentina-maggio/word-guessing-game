@@ -1,17 +1,17 @@
 package game;
 
-import static org.mockito.Mockito.*;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
+import java.util.ArrayList;
 
 public class MaskerTest {
   @Test
   public void testGetsWordToGuessMakers() {
-    WordChoser mockedWordChoser = mock(WordChoser.class);
-    when(mockedWordChoser.getRandomWordFromDictionary()).thenReturn("MAKERS");
+    Masker masker = new Masker();
+    ArrayList<Character> guessedLetters = new ArrayList<Character>();
+    guessedLetters.add('E');
+    guessedLetters.add('R');
 
-    Masker masker = new Masker(mockedWordChoser);
-
-    assertEquals("M_____", masker.getWordToGuess());
+    assertEquals("M__ER_", masker.getMaskedWord("MAKERS", guessedLetters));
   }
 }
