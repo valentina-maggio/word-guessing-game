@@ -4,39 +4,65 @@
 package game;
 
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Random;
 
 public class App {
     public static void main(String[] args) {
-        WordChoser choser = new WordChoser();
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Welcome to hangman game!");
+        System.out.println(" ");
+        System.out.println("Enter name for player 1");
+        String player1Name = scan.nextLine();
+        System.out.println("Enter name for player 2");
+        String player2Name = scan.nextLine();
+        System.out.println(" ");
+
+        WordChoser wordChoser = new WordChoser();
         Masker masker = new Masker();
-        Game game = new Game(choser, masker);
-        System.out.println("Welcome! The word to guess is:");
 
-        do {
-            System.out.println(game.getWordToGuess());
-            System.out.println("Guess a letter! " + "(" + game.getRemainingAttempts() + " attempts remaining)");
+        Game game1 = new Game(wordChoser, masker, player1Name);
+        Game game2 = new Game(wordChoser, masker, player2Name);
+        ArrayList<Game> players = new ArrayList<>(Arrays.asList(game1, game2));
 
-            Scanner scan = new Scanner(System.in);
-            Character input = scan.nextLine().charAt(0);
-            String result = game.guessLetter(input);
+        Random rand = new Random();
+        int randomNumber = rand.nextInt(players.size());
+        Game player1 = players.get(randomNumber);
+        Game player2 = players.get(1 - randomNumber);
 
-            if (result == "correct") {
-                if (game.isGameWon()) {
-                    System.out.println("Right! You won!");
-                    System.out.println(game.getWordToGuess());
-                } else {
-                    System.out.println("Right!");
-                }
-            } else if (result == "repeated") {
-                System.out.println("You have already chosen this letter. Please make a new selection");
-            } else {
-                if (game.isGameLost()) {
-                    System.out.println("Wrong! You lost");
-                } else {
-                    System.out.println("Wrong!");
-                }
-            }
+        System.out.println("The word to guess is:");
+        System.out.println(player1.name + ": " + player1.getWordToGuess());
+        System.out.println(player2.name + ": " + player2.getWordToGuess());
 
-        } while (game.getWordToGuess().contains("_") && game.getRemainingAttempts() > 0);
+        // do {
+        // System.out.println(game.getWordToGuess());
+        // System.out.println("Guess a letter! " + "(" + game.getRemainingAttempts() + "
+        // attempts remaining)");
+
+        // // Scanner scan = new Scanner(System.in);
+        // Character input = scan.nextLine().charAt(0);
+        // String result = game.guessLetter(input);
+
+        // if (result == "correct") {
+        // if (game.isGameWon()) {
+        // System.out.println("Right! You won!");
+        // System.out.println(game.getWordToGuess());
+        // } else {
+        // System.out.println("Right!");
+        // }
+        // } else if (result == "repeated") {
+        // System.out.println("You have already chosen this letter. Please make a new
+        // selection");
+        // } else {
+        // if (game.isGameLost()) {
+        // System.out.println("Wrong! You lost");
+        // } else {
+        // System.out.println("Wrong!");
+        // }
+        // }
+
+        // } while (game.getWordToGuess().contains("_") && game.getRemainingAttempts() >
+        // 0);
     }
 }
