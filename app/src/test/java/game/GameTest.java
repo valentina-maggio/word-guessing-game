@@ -3,30 +3,11 @@ package game;
 import static org.mockito.Mockito.*;
 
 import static org.junit.Assert.assertEquals;
+import java.util.ArrayList;
 
 import org.junit.Test;
 
 public class GameTest {
-  // @Test
-  // public void testGetsWordToGuessMakers() {
-  // WordChoser mockedWordChoser = mock(WordChoser.class);
-  // when(mockedWordChoser.getRandomWordFromDictionary()).thenReturn("MAKERS");
-
-  // Game game = new Game(mockedWordChoser);
-
-  // assertEquals("M_____", game.getWordToGuess());
-  // }
-
-  // @Test
-  // public void testGetsWordToGuessCandies() {
-  // WordChoser mockedWordChoser = mock(WordChoser.class);
-  // when(mockedWordChoser.getRandomWordFromDictionary()).thenReturn("CANDIES");
-
-  // Game game = new Game(mockedWordChoser);
-
-  // assertEquals("C______", game.getWordToGuess());
-  // }
-
   @Test
   public void testGetsInitialRemainingAttempts() {
     WordChoser mockedWordChoser = mock(WordChoser.class);
@@ -42,10 +23,12 @@ public class GameTest {
   public void testDisplaysMaskedWordToGuess() {
     WordChoser mockedWordChoser = mock(WordChoser.class);
     when(mockedWordChoser.getRandomWordFromDictionary()).thenReturn("MAKERS");
+
     Masker mockedMasker = mock(Masker.class);
+    ArrayList<Character> hiddenLetters = new ArrayList<Character>();
+    when(mockedMasker.getMaskedWord("MAKERS", hiddenLetters)).thenReturn("M_____");
 
     Game game = new Game(mockedWordChoser, mockedMasker);
-    System.out.println(game.word);
     assertEquals("M_____", game.getWordToGuess());
   }
 

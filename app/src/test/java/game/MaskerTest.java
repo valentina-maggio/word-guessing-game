@@ -8,8 +8,9 @@ public class MaskerTest {
   @Test
   public void testGetsInitialWordToGuessMakers() {
     Masker masker = new Masker();
+    ArrayList<Character> guessedLetters = new ArrayList<Character>();
 
-    assertEquals("M_____", masker.getInitialMaskedWord("MAKERS"));
+    assertEquals("M_____", masker.getMaskedWord("MAKERS", guessedLetters));
   }
 
   @Test

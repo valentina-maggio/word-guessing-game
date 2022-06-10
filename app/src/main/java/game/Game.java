@@ -34,7 +34,8 @@ public class Game {
   // }
 
   public String getWordToGuess() {
-    return this.masker.getInitialMaskedWord(this.word);
+    ArrayList<Character> hiddenLetters = new ArrayList<Character>();
+    return this.masker.getMaskedWord(this.word, hiddenLetters);
   }
 
   public Integer getRemainingAttempts() {
