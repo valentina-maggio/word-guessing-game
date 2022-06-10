@@ -23,7 +23,8 @@ public class Game {
   }
 
   public Boolean guessLetter(Character letter) {
-    if (word.indexOf(letter) == -1) {
+    String wordToCheck = this.word.substring(1);
+    if (wordToCheck.indexOf(letter) == -1) {
       remainingAttempts -= 1;
       return false;
     } else {

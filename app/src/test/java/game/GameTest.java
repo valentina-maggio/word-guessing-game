@@ -127,4 +127,15 @@ public class GameTest {
 
     assertEquals(true, game.isGameWon());
   }
+
+  @Test
+  public void testGuessWrongWhenOnlyOneOccurenceOfFirstLetter() {
+    WordChoser mockedWordChoser = mock(WordChoser.class);
+    when(mockedWordChoser.getRandomWordFromDictionary()).thenReturn("DEVELOPER");
+    Masker mockedMasker = mock(Masker.class);
+
+    Game game = new Game(mockedWordChoser, mockedMasker);
+
+    assertEquals(false, game.guessLetter('D'));
+  }
 }
