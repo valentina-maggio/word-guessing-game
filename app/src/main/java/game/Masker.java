@@ -22,4 +22,19 @@ public class Masker {
 
     return maskedWord.toString();
   }
+
+  public String getInitialMaskedWord(String word) {
+    StringBuilder initialMaskedWord = new StringBuilder();
+
+    for (int i = 0; i < word.length(); i++) {
+      Character letter = word.charAt(i);
+      if (i == 0) {
+        initialMaskedWord.append(letter);
+      } else {
+        initialMaskedWord.append("_");
+      }
+    }
+
+    return initialMaskedWord.toString();
+  }
 }
