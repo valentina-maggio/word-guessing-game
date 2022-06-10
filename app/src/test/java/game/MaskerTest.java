@@ -14,4 +14,13 @@ public class MaskerTest {
 
     assertEquals("M__ER_", masker.getMaskedWord("MAKERS", guessedLetters));
   }
+
+  @Test
+  public void testGetsInitialWordToGuessMakers() {
+    Masker masker = new Masker();
+    ArrayList<Character> guessedLetters = new ArrayList<Character>();
+    guessedLetters.add(' ');
+
+    assertEquals("M_____", masker.getMaskedWord("MAKERS", guessedLetters));
+  }
 }
