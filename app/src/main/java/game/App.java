@@ -6,10 +6,6 @@ package game;
 import java.util.Scanner;
 
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
-
     public static void main(String[] args) {
         WordChoser choser = new WordChoser();
         Masker masker = new Masker();
@@ -39,8 +35,6 @@ public class App {
                     System.out.println("Wrong!");
                 }
             }
-
-            // System.out.println(game.getUpdatedWordToGuess());
 
         } while (game.getWordToGuess().contains("_") && game.getRemainingAttempts() > 0);
     }

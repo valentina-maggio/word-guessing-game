@@ -19,32 +19,32 @@ public class Game {
   }
 
   public Integer getRemainingAttempts() {
-    return remainingAttempts;
+    return this.remainingAttempts;
   }
 
   public Boolean guessLetter(Character letter) {
     String wordToCheck = this.word.substring(1);
     if (wordToCheck.indexOf(letter) == -1) {
-      remainingAttempts -= 1;
+      this.remainingAttempts -= 1;
       return false;
     } else {
-      guessedLetters.add(letter);
+      this.guessedLetters.add(letter);
       return true;
     }
   }
 
   public ArrayList<Character> getLetters() {
-    return guessedLetters;
+    return this.guessedLetters;
   }
 
   public Boolean isGameLost() {
-    return getRemainingAttempts() <= 0 && guessedLetters.size() != getWordToGuess().length() - 1;
+    return getRemainingAttempts() <= 0 && this.guessedLetters.size() != getWordToGuess().length() - 1;
   }
 
   public Boolean isGameWon() {
-    for (int i = 1; i < word.length(); i++) {
-      Character letter = word.charAt(i);
-      if (guessedLetters.indexOf(letter) == -1) {
+    for (int i = 1; i < this.word.length(); i++) {
+      Character letter = this.word.charAt(i);
+      if (this.guessedLetters.indexOf(letter) == -1) {
         return false;
       }
     }
