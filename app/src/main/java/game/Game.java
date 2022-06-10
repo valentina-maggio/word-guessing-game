@@ -22,14 +22,16 @@ public class Game {
     return this.remainingAttempts;
   }
 
-  public Boolean guessLetter(Character letter) {
+  public String guessLetter(Character letter) {
     String wordToCheck = this.word.substring(1);
     if (wordToCheck.indexOf(letter) == -1) {
       this.remainingAttempts -= 1;
-      return false;
+      return "wrong";
+    } else if (wordToCheck.indexOf(letter) != -1 && guessedLetters.contains(letter)) {
+      return "repeated";
     } else {
       this.guessedLetters.add(letter);
-      return true;
+      return "correct";
     }
   }
 

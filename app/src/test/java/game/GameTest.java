@@ -40,7 +40,7 @@ public class GameTest {
 
     Game game = new Game(mockedWordChoser, mockedMasker);
 
-    assertEquals(false, game.guessLetter('I'));
+    assertEquals("wrong", game.guessLetter('I'));
   }
 
   @Test
@@ -51,7 +51,7 @@ public class GameTest {
 
     Game game = new Game(mockedWordChoser, mockedMasker);
 
-    assertEquals(true, game.guessLetter('N'));
+    assertEquals("correct", game.guessLetter('N'));
   }
 
   @Test
@@ -136,6 +136,6 @@ public class GameTest {
 
     Game game = new Game(mockedWordChoser, mockedMasker);
 
-    assertEquals(false, game.guessLetter('D'));
+    assertEquals("wrong", game.guessLetter('D'));
   }
 }

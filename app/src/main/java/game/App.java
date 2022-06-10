@@ -18,16 +18,17 @@ public class App {
 
             Scanner scan = new Scanner(System.in);
             Character input = scan.nextLine().charAt(0);
-            Boolean result = game.guessLetter(input);
+            String result = game.guessLetter(input);
 
-            if (result) {
+            if (result == "correct") {
                 if (game.isGameWon()) {
                     System.out.println("Right! You won!");
                     System.out.println(game.getWordToGuess());
                 } else {
                     System.out.println("Right!");
                 }
-
+            } else if (result == "repeated") {
+                System.out.println("You have already chosen this letter. Please make a new selection");
             } else {
                 if (game.isGameLost()) {
                     System.out.println("Wrong! You lost");
