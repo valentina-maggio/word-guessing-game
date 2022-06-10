@@ -3,39 +3,19 @@ package game;
 import java.util.ArrayList;
 
 public class Game {
-  public String word;
+  private String word;
   private Integer remainingAttempts = 10;
-  public WordChoser wordChoser;
+  private WordChoser wordChoser;
   private Masker masker;
-  public ArrayList<Character> guessedLetters = new ArrayList<Character>();
+  private ArrayList<Character> guessedLetters = new ArrayList<Character>();
 
   public Game(WordChoser wordChoser, Masker masker) {
     this.word = wordChoser.getRandomWordFromDictionary();
     this.masker = masker;
   }
 
-  // public String getWordToGuess() {
-  // StringBuilder sb = new StringBuilder();
-
-  // for (int i = 0; i < word.length(); i++) {
-  // Character letter = word.charAt(i);
-  // if (i == 0) {
-  // sb.append(letter);
-  // } else {
-  // if (guessedLetters.indexOf(letter) != -1) {
-  // sb.append(letter);
-  // } else {
-  // sb.append("_");
-  // }
-  // }
-  // }
-
-  // return sb.toString();
-  // }
-
   public String getWordToGuess() {
-    ArrayList<Character> hiddenLetters = new ArrayList<Character>();
-    return this.masker.getMaskedWord(this.word, hiddenLetters);
+    return this.masker.getMaskedWord(this.word, guessedLetters);
   }
 
   public Integer getRemainingAttempts() {
