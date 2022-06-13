@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a simple Command Line hangman game for two players built in Java. Each player has to guess their own word, and has their own counter of (10) remaining attempts.The player who starts is chosen randomly. The game ends as soon as one player either wins or looses.
+This is a simple Command Line hangman game for two players built in Java. Each player has to guess their own word, and has their own counter of (10) remaining attempts. The player who starts is chosen randomly. The players turns are alternated. The game ends as soon as one player either wins or looses.
 
 ## Instructions to run the program
 
