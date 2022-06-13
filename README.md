@@ -2,7 +2,8 @@
 
 ## Description
 
-This is a simple hangman game for two players built in Java. The game runs on the Command Line.
+This is a simple hangman game for two players built in Java. The players have 10 attempts each. The game ends when one player either wins or looses.
+The game runs on the Command Line.
 
 ## Instructions to run the program
 
